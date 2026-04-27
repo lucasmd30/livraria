@@ -1,5 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<fmt:setLocale value="pt_BR"/>
 
 <html>
 <body>
@@ -22,7 +24,9 @@
             <td>${l.id}</td>
             <td>${l.titulo}</td>
             <td>${l.autor}</td>
-            <td>${l.preco}</td>
+            <td>
+                <fmt:formatNumber value="${l.preco}" type="currency" currencySymbol="R$" />
+            </td>
             <td>
                 <a href="livros?acao=editar&id=${l.id}">Editar</a>
                 <a href="livros?acao=excluir&id=${l.id}">Excluir</a>
